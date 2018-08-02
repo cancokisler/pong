@@ -15,38 +15,18 @@ public class Ball{
 	public int numberRandY;
 	public int arrayX[];
 	public int arrayY[];
-	public Ball(int numberOfBalls) {
-		this.numberOfBalls = numberOfBalls;
-		
-		for(int i = 0; i <= numberOfBalls; i++) {
-			
+	public Ball() {
 			Random random = new Random();
 			
-			int numberRandX = random.nextInt(1000);
-			int numberRandY = random.nextInt(1000);
-			
-			arrayX[i] = numberRandX;
-			arrayY[i] = numberRandY;
-			
-			
-			
-			
-			
-			
-			
-			
-		}
-		
-		
-		
+			this.x = random.nextInt(1000);
+			this.y = random.nextInt(1000);		
 	}
 	
-	public void display(Graphics g) {
-		for(int i = 0; i <= numberOfBalls; i++) {
-			g.drawOval(arrayX[i], arrayY[i], radius, radius);
+	public Graphics display(Graphics g) {
+		
+		
+			g.drawOval(x, y, radius, radius);
 			g.setColor(Color.WHITE);
-		}
-		
-		
+			return g;
 	}
 }

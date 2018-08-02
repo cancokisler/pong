@@ -14,7 +14,7 @@ public class Display extends JPanel {
 //		g.fillRect(100,100, 1000, 1000);
 		super.paintComponent(g);
 		this.setBackground(Color.BLACK);
-		Ball ball = new Ball(100);
+		Ball ball = new Ball();
 		super.paintComponent(ball.display(g));
 	}
 		
