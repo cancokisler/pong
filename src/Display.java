@@ -1,54 +1,57 @@
 import java.awt.Color;
-
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Display extends JPanel {
+public class Display extends JPanel implements ActionListener {
+	
 	public int DirX;
 	public int DirY;
+	Ball ball[] = new Ball[20];
 	
-	Timer refresher = new Timer(16, new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			update();
-			
-			
-			
-		}});
-	public Display() {
 		
+	
+	
+	
+	Timer refresher = new Timer(10, this);
+	
+	
+	
+	public Display() {
+		refresher.start();
+		for(int i = 0; i < this.ball.length; i++) {
+			ball[i] = new Ball();}
 	}
 
 	public void paintComponent(Graphics g) {
 		// g.fillRect(100,100, 1000, 1000);
-		this.setBackground(Color.BLACK);
+		this.setBackground(Color.WHITE);
 		super.paintComponent(g);
+		for (int i = 0; i < this.ball.length; i++) {
+			ball[i].display(g);
 
-		for (int i = 0; i <= 20; i++) {
-			Ball ball = new Ball();
-			ball.display(g);
+		
 		}
 		
 		
+	
+	}
+	public void actionPerformed(ActionEvent e) {
+		for (int i = 0; i < this.ball.length; i++) {
+			ball[i].update();
+		
+			
+		}
+			repaint();
+	
+
+		
+	
 	}
 	
-	public void update() {
-		Random ballRand = new Random();
-		this.DirX = ballRand.nextInt(100);
-		this.DirY = ballRand.nextInt(100);
-		
-		//just random numbers to see if balls are moving or not
-		Ball.x += 100;
-		Ball.y +=100;
-		repaint();
-		
-		
-	}
-
 }
+	
+
