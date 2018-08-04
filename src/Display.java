@@ -12,18 +12,14 @@ public class Display extends JPanel implements ActionListener {
 	public int DirY;
 	Ball ball[] = new Ball[20];
 	
-		
-	
-	
-	
 	Timer refresher = new Timer(10, this);
-	
 	
 	
 	public Display() {
 		refresher.start();
 		for(int i = 0; i < this.ball.length; i++) {
-			ball[i] = new Ball();}
+			ball[i] = new Ball();
+		}
 	}
 
 	public void paintComponent(Graphics g) {
@@ -32,24 +28,14 @@ public class Display extends JPanel implements ActionListener {
 		super.paintComponent(g);
 		for (int i = 0; i < this.ball.length; i++) {
 			ball[i].display(g);
-
-		
 		}
-		
-		
-	
+			
 	}
 	public void actionPerformed(ActionEvent e) {
 		for (int i = 0; i < this.ball.length; i++) {
 			ball[i].update();
-		
-			
 		}
-			repaint();
-	
-
-		
-	
+		repaint();
 	}
 	
 }
